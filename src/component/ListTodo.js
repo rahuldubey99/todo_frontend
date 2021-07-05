@@ -39,6 +39,9 @@ const ListTodo = () => {
                 </div>
                 <ul class="todoList">
                     <li>GYM<span class="icon" ><i class="fas fa-trash"></i></span></li>
+                    <li>GYM<span class="icon" ><i class="fas fa-trash"></i></span></li>
+                    <li>GYM<span class="icon" ><i class="fas fa-trash"></i></span></li>
+                    <li>GYM<span class="icon" ><i class="fas fa-trash"></i></span></li>
                 </ul>
                 <div class="footer">
                     <span>You have <span class="pendingTasks"></span> pending tasks</span>
