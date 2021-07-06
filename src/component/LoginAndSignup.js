@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Image1 from '../assets/image/1.jpg';
 import Image2 from '../assets/image/2.jpg'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useHistory } from 'react-router-dom';
 
 const LoginAndSignup = () => {
+
+    const history = useHistory();
     const [user, setUser] = useState({
         username: "",
         email: "",
@@ -97,20 +99,25 @@ const LoginAndSignup = () => {
 
             }
         }).then(res => {
-            console.warn("response:", res);
-            toast.success('Login successfully', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            // console.warn("response:", res);
+            // toast.success('Login successfully', {
+            //     position: "top-center",
+            //     autoClose: 5000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            // });
             console.warn("acceess:", res.data["access"]);
             localStorage.setItem("acceess", res.data["access"])
             const token = localStorage.getItem("acceess")
             console.warn("token:", token);
+            setLogin({
+                "username": "",
+                "password": "",
+            })
+            history.push("/")
         }).catch(err => {
             console.error("error", err.response.data);
         });
